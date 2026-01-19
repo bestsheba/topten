@@ -11,12 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('measurement_profiles', function (Blueprint $table) {
+        Schema::create('tailors', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('customer_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('garment_type_id')->constrained()->cascadeOnDelete();
-            $table->string('title'); 
-            $table->text('note')->nullable();
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -26,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('measurement_profiles');
+        Schema::dropIfExists('tailors');
     }
 };

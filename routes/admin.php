@@ -38,6 +38,8 @@ use App\Http\Controllers\GarmentTypeController;
 use App\Http\Controllers\MeasurementFieldController;
 use App\Http\Controllers\MeasurementProfileController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\TailorController;
+use App\Http\Controllers\TailorOrderController;
 
 // Admin Auth Route
 Route::prefix('admin')->as('admin.')->middleware('auth:admin')->group(function () {
@@ -154,6 +156,7 @@ Route::prefix('admin')->as('admin.')->controller(LoginController::class)->group(
 
 Route::prefix('admin')->as('admin.')->middleware('auth:admin')->group(function () {
     Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
+    Route::resource('tailors', TailorController::class);
 });
 Route::delete('attribute-values/{value}', [AttributeController::class, 'destroyValue'])
     ->name('attribute-values.destroy');
@@ -167,3 +170,7 @@ Route::prefix('admin/products/{product}')->middleware('auth:admin')->group(funct
     Route::get('variations/{variation}', [ProductVariantController::class, 'destroyVariation'])
         ->name('products.variations.destroy');
 });
+
+Route::get('/tailor/orders/create', [TailorOrderController::class, 'create']);
+Route::get('/tailor/measurements/{id}', [TailorOrderController::class, 'measurements']);
+Route::post('/tailor/orders', [TailorOrderController::class, 'store']);

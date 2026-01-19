@@ -20,15 +20,11 @@ class MeasurementFieldController extends Controller
         $request->validate([
             'garment_type_id' => 'required|exists:garment_types,id',
             'label' => 'required',
-            'key' => 'required'
         ]);
 
         MeasurementField::create([
             'garment_type_id' => $request->garment_type_id,
             'label' => $request->label,
-            'key' => Str::slug($request->key, '_'),
-            'unit' => 'inch',
-            'sort_order' => $request->sort_order ?? 0,
         ]);
 
         return back()->with('success', 'Measurement field added');
@@ -38,7 +34,6 @@ class MeasurementFieldController extends Controller
     {
         $measurementField->update([
             'label' => $request->label,
-            'sort_order' => $request->sort_order,
         ]);
 
         return back()->with('success', 'Measurement field updated');

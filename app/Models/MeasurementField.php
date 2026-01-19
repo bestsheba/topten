@@ -10,10 +10,7 @@ class MeasurementField extends Model
      use HasFactory;
     protected $fillable = [
         'garment_type_id',
-        'key',
         'label',
-        'unit',
-        'sort_order'
     ];
 
     public function garmentType()

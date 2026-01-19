@@ -87,6 +87,84 @@
     @endcan
     @canany(['view orders', 'manage incomplete orders'])
         <li
+            class="nav-item {{ request()->routeIs('admin.tailors*') || request()->routeIs('admin.pos') ? 'menu-open' : '' }}">
+            <a href="#"
+                class="nav-link {{ request()->routeIs('admin.tailors.*') || request()->routeIs('admin.pos') ? 'active' : '' }}">
+                <i class="nav-icon fas fa-shopping-cart"></i>
+                <p>
+                    Tailors
+                    <i class="right fas fa-angle-left"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                @can('view orders')
+                    <li class="nav-item">
+                        <a href="{{ route('admin.pos') }}"
+                            class="nav-link {{ request()->routeIs('admin.pos') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-cash-register"></i>
+                            <p>
+                                Order List
+                            </p>
+                        </a>
+                    </li>
+                @endcan
+                @can('view orders')
+                    <li class="nav-item">
+                        <a href="{{ route('admin.pos') }}"
+                            class="nav-link {{ request()->routeIs('admin.pos') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-cash-register"></i>
+                            <p>
+                                Tailor List
+                            </p>
+                        </a>
+                    </li>
+                @endcan
+                @can('view orders')
+                    <li class="nav-item">
+                        <a href="{{ route('admin.tailors.create') }}"
+                            class="nav-link {{ request()->routeIs('admin.tailors.*') }}">
+                            <i class="nav-icon fas fa-clipboard-list"></i>
+                            <p>
+                                Order Create
+                            </p>
+                        </a>
+                    </li>
+                @endcan
+            </ul>
+        </li>
+    @endcanany
+    @canany(['manage measurement'])
+        <li
+            class="nav-item {{ request()->routeIs('admin.garment-types.*') || request()->routeIs('admin.expenses.*') ? 'menu-open' : '' }}">
+            <a href="#"
+                class="nav-link {{ request()->routeIs('admin.garment-types.*') || request()->routeIs('admin.expenses.*') ? 'active' : '' }}">
+                <i class="nav-icon fas fa-wallet"></i>
+                <p>
+                    Measurement
+                    <i class="right fas fa-angle-left"></i>
+                </p>
+            </a>
+
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="{{ route('admin.garment-types.index') }}"
+                        class="nav-link {{ request()->routeIs('admin.garment-types.index') ? 'active' : '' }}">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Types</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.measurement-fields.index') }}"
+                        class="nav-link {{ request()->routeIs('admin.measurement-fields.index') ? 'active' : '' }}">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Fields</p>
+                    </a>
+                </li>
+            </ul>
+        </li>
+    @endcanany
+    @canany(['view orders', 'manage incomplete orders'])
+        <li
             class="nav-item {{ request()->routeIs('admin.order*') || request()->routeIs('admin.pos') ? 'menu-open' : '' }}">
             <a href="#"
                 class="nav-link {{ request()->routeIs('admin.order.*') || request()->routeIs('admin.pos') ? 'active' : '' }}">
@@ -229,37 +307,6 @@
             </ul>
         </li>
     @endcanany
-    @canany(['manage measurement'])
-        <li
-            class="nav-item {{ request()->routeIs('admin.garment-types.*') || request()->routeIs('admin.expenses.*') ? 'menu-open' : '' }}">
-            <a href="#"
-                class="nav-link {{ request()->routeIs('admin.garment-types.*') || request()->routeIs('admin.expenses.*') ? 'active' : '' }}">
-                <i class="nav-icon fas fa-wallet"></i>
-                <p>
-                    Measurement
-                    <i class="right fas fa-angle-left"></i>
-                </p>
-            </a>
-
-            <ul class="nav nav-treeview">
-                <li class="nav-item">
-                    <a href="{{ route('admin.garment-types.index') }}"
-                        class="nav-link {{ request()->routeIs('admin.garment-types.index') ? 'active' : '' }}">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Types</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('admin.measurement-fields.index') }}"
-                        class="nav-link {{ request()->routeIs('admin.measurement-fields.index') ? 'active' : '' }}">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Fields</p>
-                    </a>
-                </li>
-            </ul>
-        </li>
-    @endcanany
-
     @can('view roles')
         <li class="nav-item">
             <a href="{{ route('admin.role.index') }}"

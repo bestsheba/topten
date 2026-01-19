@@ -44,6 +44,7 @@
     <!-- ./wrapper -->
     @include('admin.layouts.scripts')
     @yield('script')
+    @stack('script')
 </body>
 
 </html>

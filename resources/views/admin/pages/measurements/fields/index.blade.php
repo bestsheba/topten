@@ -30,9 +30,6 @@
                                 <tr>
                                     <th width="60">#</th>
                                     <th>Label</th>
-                                    <th>Key</th>
-                                    {{-- <th>Unit</th> --}}
-                                    <th width="120">Sort Order</th>
                                     <th width="150">Actions</th>
                                 </tr>
                             </thead>
@@ -41,9 +38,6 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $field->label }}</td>
-                                        <td><code>{{ $field->key }}</code></td>
-                                        {{-- <td>{{ $field->unit }}</td> --}}
-                                        <td>{{ $field->sort_order }}</td>
                                         <td>
                                             <button class="btn btn-sm btn-info" data-toggle="modal"
                                                 data-target="#editModal{{ $field->id }}">
@@ -82,12 +76,6 @@
                                                             <label>Label</label>
                                                             <input type="text" name="label" class="form-control"
                                                                 value="{{ $field->label }}" required>
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                            <label>Sort Order</label>
-                                                            <input type="number" name="sort_order" class="form-control"
-                                                                value="{{ $field->sort_order }}">
                                                         </div>
                                                     </div>
 
@@ -137,21 +125,9 @@
                                 @endforeach
                             </select>
                         </div>
-
                         <div class="form-group">
                             <label>Label <span class="text-danger">*</span></label>
                             <input type="text" name="label" class="form-control" placeholder="Chest, Waist" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Key <span class="text-danger">*</span></label>
-                            <input type="text" name="key" class="form-control" placeholder="chest, waist" required>
-                            <small class="text-muted">Will be converted to snake_case</small>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Sort Order</label>
-                            <input type="number" name="sort_order" class="form-control" value="0">
                         </div>
                     </div>
 

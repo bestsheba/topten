@@ -13,14 +13,9 @@ return new class extends Migration
     {
         Schema::create('measurement_fields', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('garment_type_id')->constrained()->cascadeOnDelete();
-            $table->string('key');        // chest, sleeve_length
-            $table->string('label');      // Chest, Sleeve Length
-            $table->string('unit')->default('inch');
-            $table->unsignedInteger('sort_order')->default(0);
+            $table->foreignId('garment_type_id')->constrained()->cascadeOnDelete();      
+            $table->string('label');      
             $table->timestamps();
-
-            $table->unique(['garment_type_id', 'key']);
         });
     }
 
