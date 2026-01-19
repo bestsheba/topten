@@ -1,0 +1,453 @@
+[
+    {
+        "category" : "1",
+        "title": "Oneplus 7 Pro GM1910 256GB, 8GB, Dual Sim, 6.67 inch, 48MP Main Lens Triple Camera",
+        "image": "dummy/product/mobile/oneplus.jpeg"
+    },
+    {
+        "category" : "1",
+        "title": "iPhone 11 Pro Max 64G 6.5-inch Genuine Phone With Dual Card and Full Screen",
+        "image": "dummy/product/mobile/iphone-11-pro.png"
+    },
+    {
+        "category" : "1",
+        "title": "Samsung Galaxy S20 (SM-G980F/DS) Dual SIM 128GB, 6.2 (International Version)",
+        "image": "dummy/product/mobile/samsung-s20.jpeg"
+    },
+    {
+        "category" : "1",
+        "title": "Samsung Galaxy A51 (SM-A515F/DS) Dual SIM 128GB, GSM Unlocked",
+        "image": "dummy/product/mobile/samsung-galaxy-a5.jpeg"
+    },
+    {
+        "category" : "1",
+        "title": "Huawei Mate 30 6.62 No Google Play TAS-AL00/DS 128GB 8GB RAM (GSM Only, No CDMA) Factory Unlocked",
+        "image": "dummy/product/mobile/huawei-meta.jpeg"
+    },
+
+
+    {
+        "category" : "2",
+        "title": "half sleeves T shirts",
+        "image": "dummy/product/fashion/half-sleeves.jpeg"
+    },
+    {
+        "category" : "2",
+        "title": "FREE FIRE T Shirt",
+        "image": "dummy/product/fashion/freefire.jpeg"
+    },
+    {
+        "category" : "2",
+        "title": "Pubg Printed Graphic T-Shirt",
+        "image": "dummy/product/fashion/pubg.jpeg"
+    },
+    {
+        "category" : "2",
+        "title": "printed high quality T shirts",
+        "image": "dummy/product/fashion/printed.jpeg"
+    },
+    {
+        "category" : "2",
+        "title": "Money Heist Printed Summer T Shirts",
+        "image": "dummy/product/fashion/moneyheist.jpeg"
+    },
+
+
+
+    {
+        "category" : "3",
+        "title": "Emborg Whipped Cream Spray 250gm",
+        "image": "dummy/product/groceries/eborg.jpg"
+    },
+    {
+        "category" : "3",
+        "title": "GOLDEN GARDEN BLUEBERRY PLUM 250GM",
+        "image": "dummy/product/groceries/golden-garden.jpg"
+    },
+    {
+        "category" : "3",
+        "title": "NESTLE KITKAT CHUNKY WHITE CHOCO 160GM",
+        "image": "dummy/product/groceries/kitkat.jpg"
+    },
+    {
+        "category" : "3",
+        "title": "PRAN MEAT MASALA MIX 100GM",
+        "image": "dummy/product/groceries/meat.jpg"
+    },
+    {
+        "category" : "3",
+        "title": "PRAN HOT TOMATO SAUCE 750GM",
+        "image": "dummy/product/groceries/sauce.jpg"
+    },
+
+
+    {
+        "category" : "4",
+        "title": "Pabda Fish (পাবদা মাছ) 1kg",
+        "image": "dummy/product/organic/0055951_pabda-fish-1kg.jpeg"
+    },
+    {
+        "category" : "4",
+        "title": "Chicken Broiler With Skin 1kg",
+        "image": "dummy/product/organic/0057905_chicken-broiler-with-skin-1kg (1).jpeg"
+    },
+    {
+        "category" : "4",
+        "title": "Rui Fish (রুই মাছ) 1.2 Kg (50gm±) Per Pcs Before Cutting",
+        "image": "dummy/product/organic/0282506_rui-fish-12-kg-50gm-per-pcs-before-cutting.jpeg"
+    },
+    {
+        "category" : "4",
+        "title": "Live Chicken Sonalika 1kg",
+        "image": "dummy/product/organic/0342066_live-chicken-sonalika-1kg.jpeg"
+    },
+    {
+        "category" : "4",
+        "title": "DS Chicken Broiler WO Skin Drumstick 1kg",
+        "image": "dummy/product/organic/0365426_ds-chicken-broiler-wo-skin-drumstick-1kg.jpeg"
+    },
+
+
+
+    {
+        "category" : "6",
+        "title": "Mornadi Velvet Bed",
+        "image": "dummy/product/furniture/bed.jpeg"
+    },
+    {
+        "category" : "6",
+        "title": "Sofa for Coffe Cafe",
+        "image": "dummy/product/furniture/sofa.jpeg"
+    },
+    {
+        "category" : "6",
+        "title": "3 Tier Corner Shelves",
+        "image": "dummy/product/furniture/3tier.jpeg"
+    },
+    {
+        "category" : "6",
+        "title": "3 DOOR PORTABLE",
+        "image": "dummy/product/furniture/3door.jpeg"
+    },
+    {
+        "category" : "6",
+        "title": "Plastic Table",
+        "image": "dummy/product/furniture/plastictable.jpeg"
+    },
+    {
+        "category" : "8",
+        "title": "Starex 19 NB Wide Led TV Monitor",
+        "image": "dummy/product/tv/starex-31.jpeg"
+    },
+    {
+        "category" : "8",
+        "title": "Starex 32 GS Smart Android Led Tv Monitor (Double Glass)",
+        "image": "dummy/product/tv/starx-32.jpeg"
+    },
+    {
+        "category" : "8",
+        "title": "Samsung 32N4010 32 Basic HD LED Television",
+        "image": "dummy/product/tv/samsung32.jpeg"
+    },
+    {
+        "category" : "1",
+        "title": "Intel Pentium G6400 10th Gen Special PC",
+        "image": "dummy/product/electronics/computer/intel-pentium-g6400-10th-gen-special-pc-500x500.png"
+    },
+    {
+        "category" : "1",
+        "title": "Star PC AMD Athlon 3000G",
+        "image": "dummy/product/electronics/computer/star-pc-amd-athlon-3000g-05-500x500.jpeg"
+    },
+    {
+        "category" : "1",
+        "title": "Star PC Intel Pentium Gold G6400 11th Gen PC",
+        "image": "dummy/product/electronics/computer/g6400-10th-gen-pc-500x500.jpeg"
+    },
+    {
+        "category" : "1",
+        "title": "Star PC 10th Gen Core i3 10105",
+        "image": "dummy/product/electronics/computer/star-pc-10th-gen-core-i3-10105-500x500.png"
+    },
+    {
+        "category" : "1",
+        "title": "Thursday Thunder Special Pentium Gold G6400 10th gen PC",
+        "image": "dummy/product/electronics/computer/pentium-gold-g6400-001-500x500.png"
+    },
+    {
+        "category" : "1",
+        "title": "Star PC 10th Gen Core i5 10400",
+        "image": "dummy/product/electronics/computer/star-pc-10th-gen-core-i5-10400-001-500x500.jpeg"
+    },
+    {
+        "category" : "1",
+        "title": "Intel 10th Gen Core i3-10100 Gaming PC",
+        "image": "dummy/product/electronics/computer/intel-10th-gen-core-i3-10100-gaming-pc-500x500.jpeg"
+    },
+    {
+        "category" : "1",
+        "title": "Star PC 12th Gen Core i3 12100",
+        "image": "dummy/product/electronics/computer/i3-12100-500x500.jpeg"
+    },
+    {
+        "category" : "8",
+        "title": "Haier H32D2M 32 Inch Miracast HD Non-Smart LED Television",
+        "image": "dummy/product/tv/haier.jpeg"
+    },
+    {
+        "category" : "8",
+        "title": "Mango MGN1 32 Borderless HD Smart Android LED Television",
+        "image": "dummy/product/tv/mango.png"
+    },
+    {
+        "category" : "1",
+        "title": "MacBook Pro",
+        "image": "dummy/product/computer/macbookpro.png"
+    },
+    {
+        "category" : "1",
+        "title": "Samsung Galaxy Book",
+        "image": "dummy/product/computer/sam-gal-book.jpeg"
+    },
+    {
+        "category" : "1",
+        "title": "Microsoft Surface Laptop",
+        "image": "dummy/product/computer/microsoftseface.jpeg"
+    },
+    {
+        "category" : "1",
+        "title": "Infinix INBOOK",
+        "image": "dummy/product/computer/infixixpro.jpeg"
+    },
+    {
+        "category" : "1",
+        "title": "HP Pavilion 15-DK1056WM",
+        "image": "dummy/product/computer/hp-pavilioin.jpeg"
+    },
+    {
+        "category" : "1",
+        "title": "Amazon Fire 7 Quad Core 7 Display Tablet with Alexa",
+        "image": "dummy/product/electronics/tablet/fire-hd-8-500x500.jpg"
+    },
+    {
+        "category" : "1",
+        "title": "SZFP FP430S Digital Electronic Signature Pad",
+        "image": "dummy/product/electronics/tablet/fp430s-01-500x500.jpg"
+    },
+    {
+        "category" : "1",
+        "title": "Realme Pad Helio G80 3GB RAM 32GB ROM 10.4 Android Tablet",
+        "image": "dummy/product/electronics/tablet/realme-pad-01-500x500.jpg"
+    },
+    {
+        "category" : "1",
+        "title": "Samsung Galaxy Tab A 8.0 2GB RAM 32GB ROM 8 Android Tablet",
+        "image": "dummy/product/electronics/tablet/samsung-galaxy-tab-a-8-0-01-500x500.jpg"
+    },
+    {
+        "category" : "1",
+        "title": "Lenovo Tab M8 (2nd Gen) 8 3GB RAM 32GB Storage Android Tablet",
+        "image": "dummy/product/electronics/tablet/tab-m8-01-500x500.jpg"
+    },
+    {
+        "category" : "1",
+        "title": "Walton Walpad 10P Tablet",
+        "image": "dummy/product/electronics/tablet/walpad-10p-001-500x500.jpg"
+    },
+    {
+        "category" : "2",
+        "title": "Combo of Leather Belt and Wallet For Men - Black",
+        "image": "dummy/product/fashion/men/VCVdAczz9HCu86Urrf19bT2skeU4QzGiPDOxIUqg.jpg"
+    },
+    {
+        "category" : "2",
+        "title": "Leather Wallet for Men - Coffee",
+        "image": "dummy/product/fashion/men/Udkgq9VFKIZ3M56oLjf3h1ch2sY2wk3cTN4Dv5P0.jpg"
+    },
+    {
+        "category" : "2",
+        "title": "Cotton Short Sleeve Polo Shirt for Men - Ash - M-40 21047_L",
+        "image": "dummy/product/fashion/men/2en9237DnM4CjPFPBKsIiXsyuYW6adiqLgKMj3cN.jpg"
+    },
+    {
+        "category" : "2",
+        "title": "Silk Semi Long Panjabi for Men - Blue - MA-663 12466_40/M",
+        "image": "dummy/product/fashion/men/nFo8ofNpTQfFHusXUGEBV6JUA28Aa6PDmd0JywFZ.jpg"
+    },
+    {
+        "category" : "2",
+        "title": "Linen Exclusive Tops for Women - White",
+        "image": "dummy/product/fashion/women/BMq237seEkUBIS6SS7x91SculUFDzBHB095ElRdS.jpg"
+    },
+    {
+        "category" : "2",
+        "title": "Linen Exclusive Tops for Women - Maroon",
+        "image": "dummy/product/fashion/women/cht2KW0Nox5v6w5k9zMr0sX8yTOANQgAedf6nsrj.jpg"
+    },
+    {
+        "category" : "2",
+        "title": "Cotton T-shirt for Women - Navy Blue",
+        "image": "dummy/product/fashion/women/3IhqwsfIKr7yNh0TgBJUB9xY3yC3twJjvay4qCNr.jpg"
+    },
+    {
+        "category" : "2",
+        "title": "Cotton T-shirt for Women - Black",
+        "image": "dummy/product/fashion/women/67cHc4FykT8a0W9loZtJ4FZJz5pu2wOh264waqN2.png"
+    },
+    {
+        "category" : "2",
+        "title": "NAVIFORCE NF9201 Silver Stainless Steel Dual Time Watch for Men - Royal Blue and Silver",
+        "image": "dummy/product/fashion/watch/durOG6p3pCx9Vjwdwhcfc7JYAZD3MOBbV96VZabV.jpg"
+    },
+    {
+        "category" : "2",
+        "title": "NAVIFORCE NF9201 Royal Blue Stainless Steel Dual Time Watch for Men - RoseGold and Royal Blue",
+        "image": "dummy/product/fashion/watch/GXAHDUrXgGdSJ8V2s1sU4O6LqdxbAVzPfsRS5GcM.jpg"
+    },
+    {
+        "category" : "2",
+        "title": "NAVIFORCE NF9198 Royal Blue Stainless Steel Analog Watch for Men - Rose Gold and Royal Blue",
+        "image": "dummy/product/fashion/watch/IbaVwammBJC8ipwtNCovcrLzBOW6WxhHCxNoEgK0.jpg"
+    },
+    {
+        "category" : "2",
+        "title": "NAVIFORCE NF9198 Golden Stainless Steel Analog Watch for Men - Golden",
+        "image": "dummy/product/fashion/watch/k6INezUOFGDovCdeDZO6RuiidEiea1YlwEjaupUC.jpg"
+    },
+    {
+        "category" : "2",
+        "title": "LouisWill 5 in 1 Sunglasses Set UV400 Polarized Driving Sunglasses Magnetic Clip Glasses Unisex Lenses Retro Frame Day Night Vision Sunglasses Outdoor Anti-UV Eyewear with Hanging Neck Rope for Diving Fishing Hiking",
+        "image": "dummy/product/fashion/sunglass/3ab927d8513bbc8ad1f6fbb04cd052cd.jpg"
+    },
+    {
+        "category" : "2",
+        "title": "Louiswill Male Women's Glasses Fashion Polarized Sunglasses Photoctromic Auto Color Changing Sunglasses Anti Blue Ray Driving Glasses Dual-Use HD Reading Glasses",
+        "image": "dummy/product/fashion/sunglass/8d6f4a5815e22bc8b7831cf3ebe584d1.jpg"
+    },
+    {
+        "category" : "2",
+        "title": "Fashionable Polarized driving Sport Square Sun glass Men - Black",
+        "image": "dummy/product/fashion/sunglass/1776fdbb46beffcca5a417e1a201b148.jpg"
+    },
+    {
+        "category" : "2",
+        "title": "Night Vision Glasses Sunglasses Driving Glasses for cyclists bikers drivers Night Driving",
+        "image": "dummy/product/fashion/sunglass/28562cbc63159f13ceafe690d8aca3e7.jpg"
+    },
+    {
+        "category" : "5",
+        "title": "Magic Shot Mini Basketball for Kids and Adults - Red - basketball_set_mini",
+        "image": "dummy/product/sports/team/kKkEbKlBbOcmATxpuv9UaziFErRE6b06AmMLDblR.jpg"
+    },
+    {
+        "category" : "5",
+        "title": "Barca/Barcelona Machine Stitched Club Football - 5 Number - Blue - football_barca_r&b",
+        "image": "dummy/product/sports/team/tEpQxgNRAwrHaDI0jFx8TKY9lufL1q0gzkAfx7Jp.jpg"
+    },
+    {
+        "category" : "5",
+        "title": "Chelsea Machine Stitched Club Football - 5 Number - Blue - football_chelsea",
+        "image": "dummy/product/sports/team/WdzCnNaB4h4tKv5RevgTjMESdbDGq9ZXzY6Se9sm.jpg"
+    },
+    {
+        "category" : "5",
+        "title": "UEFA EURO-2020 Machine Stitched Training Football - 5 Number - Multicolor - football_euro2020",
+        "image": "dummy/product/sports/team/X320Sm8jdqmgHDWO8e1INnGODP0Z9Rb2RsPUX65L.jpg"
+    },
+    {
+        "category" : "5",
+        "title": "Cotton Lace Transparent Love print Mesh Ankle Socks for Women - Yellow",
+        "image": "dummy/product/sports/shoes/0GTC5JBAiNXK34c0kgqZQpLxlYgPW2LXT4IHQE7n.jpg"
+    },
+    {
+        "category" : "5",
+        "title": "Premium Quality Riding Jersey - Multicolor",
+        "image": "dummy/product/sports/shoes/11LuBk3IxfwLQKpYRjVkLN9KUGO7WORb2KcAtYel.jpg"
+    },
+    {
+        "category" : "5",
+        "title": "2022 Jersey Suzuki New Model",
+        "image": "dummy/product/sports/shoes/aE4MWiwvt51THH7yxRpMxwvy4HRkT4ALC2On0rLn.jpg"
+    },
+    {
+        "category" : "7",
+        "title": "Yoga Mat - Pink",
+        "image": "dummy/product/sports/fitness/6egQc7LpN2hyzL4wmePCR99yHsebM5TDeSzdrz9k.jpg"
+    },
+    {
+        "category" : "7",
+        "title": "Buy yoga Gym Ball and Get Vinyl Dumbbell - 1 Kg with Pair FREE",
+        "image": "dummy/product/sports/fitness/SQ5qAz4tlRSDA65aHPG76Bp4ZiDDsNbc9mT9X39y.jpg"
+    },
+    {
+        "category" : "7",
+        "title": "Fitness Sit-ups Equipment for Home Exercise - Yellow and Black",
+        "image": "dummy/product/sports/fitness/ynqREyIu5tgH3CLAZGXbXni0mTYbzLefw71lLUEs.jpg"
+    },
+    {
+        "category" : "7",
+        "title": "Resistance Band Set 5-In-1",
+        "image": "dummy/product/sports/fitness/ZuxQ1wpNMm8kTwxBMJt2gwdSRbIVcru2e2stmdDn.jpg"
+    },
+    {
+        "category" : "8",
+        "title": "Affordable L Shaped Fabrics Sofa L662",
+        "image": "dummy/product/furniture/sofa/3aaa-500x554.jpg"
+    },
+    {
+        "category" : "8",
+        "title": "Gorgeous Sofa with Fabric and Leather",
+        "image": "dummy/product/furniture/sofa/fabrics_sofa_20(1)-500x554.jpg"
+    },
+    {
+        "category" : "8",
+        "title": "Affordable Sofa WS59 (3 Seater+ 2 Seater+ Divan)",
+        "image": "dummy/product/furniture/sofa/sofa_20(3)-500x554.jpg"
+    },
+
+    {
+        "category" : "8",
+        "title": "Marble Dining Table DT701 (4 Chairs + 1 Table)",
+        "image": "dummy/product/furniture/chair/1152133068-645633204-500x554.jpg"
+    },
+    {
+        "category" : "8",
+        "title": "Marble Dining Table DT350 (6 Chairs + 1 Table)",
+        "image": "dummy/product/furniture/chair/DT350-500x554.jpg"
+    },
+    {
+        "category" : "8",
+        "title": "Marble Dining Table DT32 (6 Chairs + 1 Table)",
+        "image": "dummy/product/furniture/chair/DT352-500x554.jpg"
+    },
+    {
+        "category" : "8",
+        "title": "Space Saving New Round Dining Table DT681 (6 Chairs + 1 Table)",
+        "image": "dummy/product/furniture/table/236414501_38008470183402_6296263758869989113_n-500x554.jpg"
+    },
+    {
+        "category" : "8",
+        "title": "Marble Dining Table 350 (6 Chairs + 1 Table)",
+        "image": "dummy/product/furniture/table/DT350-500x554 (1).jpg"
+    },
+    {
+        "category" : "8",
+        "title": "Marble Table DT352 (6 Chairs + 1 Table)",
+        "image": "dummy/product/furniture/table/ssDT352-500x554 (1).jpg"
+    },
+    {
+        "category" : "7",
+        "title": "Almer Hand Sanitizer - 5 Liter",
+        "image": "dummy/product/beauty/7pbFm3w8g3DPPL0B7u7Dq7t4yJHFQbsriIi9hA0v.jpg"
+    },
+    {
+        "category" : "7",
+        "title": "Skin Cottage Body Bath - 400ml",
+        "image": "dummy/product/beauty/pInQARlB74XMvDEVfzIG9zOasqa48q06U9M4h5fc.jpg"
+    },
+    {
+        "category" : "7",
+        "title": "Buy ProdentalB Cool Mint Mouthwash - 250ml and Free ProdentalB Cool Mint Mouthwash - 100ml",
+        "image": "dummy/product/beauty/nmlvOXYHWjJamYhXuHzIxGTgiU4AfAKw1IyR4ohb.jpg"
+    }
+]

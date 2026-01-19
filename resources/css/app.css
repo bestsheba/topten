@@ -1,0 +1,41 @@
+@import '../../node_modules/line-awesome/dist/line-awesome/css/line-awesome.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+[x-cloak] {
+    display: none !important;
+}
+
+/* custom scrollbar */
+#scrollbar::-webkit-scrollbar {
+    height: 5px;
+    background-color: black;
+}
+
+#scrollbar::-webkit-scrollbar-track {
+    /* border-radius: 10px; */
+    background: rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+}
+
+#scrollbar::-webkit-scrollbar-thumb {
+    /* border-radius: 10px; */
+    background: black;
+    border: 1px solid #aaa;
+    cursor: pointer;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
+  }
+
+  .eggy{
+    z-index: 99999;
+  }
