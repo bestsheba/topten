@@ -182,7 +182,7 @@
                                     ${field.label} <span class="text-danger">*</span>
                                 </label>
                                 <input type="text"
-                                       name="measurements[${field.key}]"
+                                       name="measurements[${field.label.toLowerCase().replace(/ /g, '_')}]"
                                        class="form-control"
                                        placeholder="Enter ${field.label}"
                                        required>

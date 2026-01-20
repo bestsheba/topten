@@ -47,6 +47,7 @@ Route::prefix('admin')->as('admin.')->middleware('auth:admin')->group(function (
     Route::get('/tailor/measurements/{id}', [TailorOrderController::class, 'measurements']);
     Route::post('/tailor/orders', [TailorOrderController::class, 'store']);
     Route::get('/tailor/orders', [TailorOrderController::class, 'index'])->name('tailor.orders');
+    Route::get('/tailor/orders/{id}', [TailorOrderController::class, 'show'])->name('tailor.orders.show');
     Route::resource('roles', RoleManagementController::class);
     Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
     Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');

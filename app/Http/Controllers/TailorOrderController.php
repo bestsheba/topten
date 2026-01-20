@@ -13,18 +13,22 @@ use Illuminate\Support\Facades\Log;
 class TailorOrderController extends Controller
 {
     public function index()
-{
-    $orders = TailorOrder::with(['customer', 'tailor', 'garmentType'])
-        ->latest()
-        ->paginate(10);
+    {
+        $orders = TailorOrder::with(['customer', 'tailor', 'garmentType'])
+            ->latest()
+            ->paginate(10);
 
-    return view('admin.tailors.orders.index', compact('orders'));
-}
+        return view('admin.tailors.orders.index', compact('orders'));
+    }
 
-public function show(TailorOrder $order)
-{
-    return view('admin.tailors.orders.show', compact('order'));
-}
+    public function show($id)
+    {
+        $tailorOrder = TailorOrder::with(['customer', 'tailor', 'garmentType'])->findOrFail($id);
+        return view('admin.tailors.orders.show', [
+            'order' => $tailorOrder
+        ]);
+    }
+
     public function create()
     {
         $garmentTypes = GarmentType::all();
