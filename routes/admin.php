@@ -43,7 +43,10 @@ use App\Http\Controllers\TailorOrderController;
 
 // Admin Auth Route
 Route::prefix('admin')->as('admin.')->middleware('auth:admin')->group(function () {
-
+    Route::get('/tailor/orders/create', [TailorOrderController::class, 'create'])->name('tailor.orders.create');
+    Route::get('/tailor/measurements/{id}', [TailorOrderController::class, 'measurements']);
+    Route::post('/tailor/orders', [TailorOrderController::class, 'store']);
+    Route::get('/tailor/orders', [TailorOrderController::class, 'index'])->name('tailor.orders');
     Route::resource('roles', RoleManagementController::class);
     Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
     Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
@@ -170,7 +173,8 @@ Route::prefix('admin/products/{product}')->middleware('auth:admin')->group(funct
     Route::get('variations/{variation}', [ProductVariantController::class, 'destroyVariation'])
         ->name('products.variations.destroy');
 });
-
-Route::get('/tailor/orders/create', [TailorOrderController::class, 'create']);
-Route::get('/tailor/measurements/{id}', [TailorOrderController::class, 'measurements']);
-Route::post('/tailor/orders', [TailorOrderController::class, 'store']);
+Route::get('/tailor/measurements/{garment}', function ($garmentId) {
+    return \App\Models\MeasurementField::where('garment_type_id', $garmentId)
+        ->select('label')
+        ->get();
+});

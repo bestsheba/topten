@@ -7,7 +7,6 @@
     <title>
         @yield('title') - {{ $settings?->website_name }}
     </title>
-
     <x-favicon-icon />
 
     @include('admin.layouts.links')

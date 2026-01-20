@@ -85,7 +85,7 @@
             </a>
         </li>
     @endcan
-    @canany(['view orders', 'manage incomplete orders'])
+    @canany(['view orders'])
         <li
             class="nav-item {{ request()->routeIs('admin.tailors*') || request()->routeIs('admin.pos') ? 'menu-open' : '' }}">
             <a href="#"
@@ -99,8 +99,8 @@
             <ul class="nav nav-treeview">
                 @can('view orders')
                     <li class="nav-item">
-                        <a href="{{ route('admin.pos') }}"
-                            class="nav-link {{ request()->routeIs('admin.pos') ? 'active' : '' }}">
+                        <a href="{{ route('admin.tailor.orders') }}"
+                            class="nav-link {{ request()->routeIs('tailor.orders') ? 'active' : '' }}">
                             <i class="nav-icon fas fa-cash-register"></i>
                             <p>
                                 Order List
@@ -110,8 +110,8 @@
                 @endcan
                 @can('view orders')
                     <li class="nav-item">
-                        <a href="{{ route('admin.pos') }}"
-                            class="nav-link {{ request()->routeIs('admin.pos') ? 'active' : '' }}">
+                        <a href="{{ route('admin.tailors.index') }}"
+                            class="nav-link {{ request()->routeIs('tailor.orders') ? 'active' : '' }}">
                             <i class="nav-icon fas fa-cash-register"></i>
                             <p>
                                 Tailor List
@@ -119,17 +119,15 @@
                         </a>
                     </li>
                 @endcan
-                @can('view orders')
-                    <li class="nav-item">
-                        <a href="{{ route('admin.tailors.create') }}"
-                            class="nav-link {{ request()->routeIs('admin.tailors.*') }}">
-                            <i class="nav-icon fas fa-clipboard-list"></i>
-                            <p>
-                                Order Create
-                            </p>
-                        </a>
-                    </li>
-                @endcan
+                <li class="nav-item">
+                    <a href="{{ route('admin.tailor.orders.create') }}"
+                        class="nav-link ">
+                        <i class="nav-icon fas fa-clipboard-list"></i>
+                        <p>
+                            Order Create
+                        </p>
+                    </a>
+                </li>
             </ul>
         </li>
     @endcanany
