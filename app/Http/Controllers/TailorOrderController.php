@@ -9,9 +9,29 @@ use App\Models\TailorOrder;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class TailorOrderController extends Controller
 {
+    public function generateInvoice(Request $request)
+    {
+        $request->validate([
+            'order_ids' => 'required|array|min:1',
+        ]);
+
+        $orders = TailorOrder::with(['customer', 'garmentType'])
+            ->whereIn('id', $request->order_ids)
+            ->get();
+
+        $totalAmount = $orders->sum('price');
+
+        $pdf = Pdf::loadView(
+            'admin.tailors.orders.invoice',
+            compact('orders', 'totalAmount')
+        );
+
+        return $pdf->download('invoice-' . now()->format('YmdHis') . '.pdf');
+    }
     public function index()
     {
         $orders = TailorOrder::with(['customer', 'tailor', 'garmentType'])
