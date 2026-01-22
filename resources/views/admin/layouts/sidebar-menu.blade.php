@@ -43,7 +43,7 @@
                     </li>
                 @endcan
 
-                @can('manage subcategories')
+                {{-- @can('manage subcategories')
                     <li class="nav-item">
                         <a href="{{ route('admin.sub-category.index') }}"
                             class="nav-link {{ request()->routeIs('admin.sub-category.*') ? 'active' : '' }}">
@@ -51,7 +51,7 @@
                             <p>Sub Category</p>
                         </a>
                     </li>
-                @endcan
+                @endcan --}}
 
                 @can('view brands')
                     <li class="nav-item">
@@ -74,7 +74,7 @@
             </ul>
         </li>
     @endcanany
-    @can('view dashboard')
+    {{-- @can('view dashboard')
         <li class="nav-item">
             <a href="{{ route('admin.services.index') }}"
                 class="nav-link {{ request()->routeIs('admin.services.index') ? 'active' : '' }}">
@@ -84,7 +84,7 @@
                 </p>
             </a>
         </li>
-    @endcan
+    @endcan --}}
     @canany(['view orders'])
         <li
             class="nav-item {{ request()->routeIs('admin.tailors*') || request()->routeIs('admin.pos') ? 'menu-open' : '' }}">
@@ -103,11 +103,20 @@
                             class="nav-link {{ request()->routeIs('tailor.orders') ? 'active' : '' }}">
                             <i class="nav-icon fas fa-cash-register"></i>
                             <p>
-                                Order List
+                                Service Orders
                             </p>
                         </a>
                     </li>
                 @endcan
+                <li class="nav-item">
+                    <a href="{{ route('admin.order.index') }}"
+                        class="nav-link {{ request()->routeIs('admin.order.*') && !request()->routeIs('admin.order.incomplete') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-clipboard-list"></i>
+                        <p>
+                            Product Orders
+                        </p>
+                    </a>
+                </li>
                 @can('view orders')
                     <li class="nav-item">
                         <a href="{{ route('admin.tailors.index') }}"
@@ -120,8 +129,7 @@
                     </li>
                 @endcan
                 <li class="nav-item">
-                    <a href="{{ route('admin.tailor.orders.create') }}"
-                        class="nav-link ">
+                    <a href="{{ route('admin.tailor.orders.create') }}" class="nav-link ">
                         <i class="nav-icon fas fa-clipboard-list"></i>
                         <p>
                             Order Create
@@ -161,44 +169,6 @@
             </ul>
         </li>
     @endcanany
-    @canany(['view orders', 'manage incomplete orders'])
-        <li
-            class="nav-item {{ request()->routeIs('admin.order*') || request()->routeIs('admin.pos') ? 'menu-open' : '' }}">
-            <a href="#"
-                class="nav-link {{ request()->routeIs('admin.order.*') || request()->routeIs('admin.pos') ? 'active' : '' }}">
-                <i class="nav-icon fas fa-shopping-cart"></i>
-                <p>
-                    Order
-                    <i class="right fas fa-angle-left"></i>
-                </p>
-            </a>
-            <ul class="nav nav-treeview">
-                @can('view orders')
-                    <li class="nav-item">
-                        <a href="{{ route('admin.pos') }}"
-                            class="nav-link {{ request()->routeIs('admin.pos') ? 'active' : '' }}">
-                            <i class="nav-icon fas fa-cash-register"></i>
-                            <p>
-                                POS
-                            </p>
-                        </a>
-                    </li>
-                @endcan
-                @can('view orders')
-                    <li class="nav-item">
-                        <a href="{{ route('admin.order.index') }}"
-                            class="nav-link {{ request()->routeIs('admin.order.*') && !request()->routeIs('admin.order.incomplete') ? 'active' : '' }}">
-                            <i class="nav-icon fas fa-clipboard-list"></i>
-                            <p>
-                                All Order
-                            </p>
-                        </a>
-                    </li>
-                @endcan
-            </ul>
-        </li>
-    @endcanany
-
     @can('view customers')
         <li class="nav-item">
             <a href="{{ route('admin.customers.index') }}"

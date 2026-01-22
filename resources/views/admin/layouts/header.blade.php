@@ -58,12 +58,21 @@
             </a>
         </li> --}}
         <li class="nav-item">
+            <a class="nav-link text-white font-weight-bold mr-2" href="{{ route('admin.tailor.orders.create') }}"
+            role="button"
+            style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+                      border-radius: 20px; 
+                      transition: all 0.3s ease;">
+                <i class="fas fa-cart-plus"></i><span class="ml-1 btn-text">Service Order</span>
+            </a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link text-white font-weight-bold" href="{{ route('admin.pos') }}"
             role="button"
             style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
                       border-radius: 20px; 
                       transition: all 0.3s ease;">
-                <i class="fas fa-cart-plus"></i><span class="ml-1 btn-text">Quick Sale</span>
+                <i class="fas fa-cart-plus"></i><span class="ml-1 btn-text">Product Order</span>
             </a>
         </li>
         <li class="nav-item">

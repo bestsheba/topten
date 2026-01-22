@@ -38,13 +38,14 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="price">
-                                        Price
+                                    <label for="buying_price">
+                                        Buying Price
                                     </label>
-                                    <input type="number" step="any" name="price"
-                                        class="form-control @error('price') is-invalid @enderror" id="price"
-                                        placeholder="Enter Price" value="{{ old('price') }}">
-                                    @error('price')
+                                    <input type="number" step="any" name="buying_price"
+                                        class="form-control @error('buying_price') is-invalid @enderror" id="buying_price"
+                                        placeholder="Enter Buying Price" value="{{ old('buying_price') }}">
+
+                                    @error('buying_price')
                                         <span class="error invalid-feedback">
                                             {{ $message }}
                                         </span>
@@ -52,32 +53,14 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="discount">
-                                        Discount
+                                    <label for="selling_price">
+                                        Selling Price
                                     </label>
-                                    <input type="number" step="any" name="discount"
-                                        class="form-control @error('discount') is-invalid @enderror" id="discount"
-                                        placeholder="Enter Discount" value="{{ old('discount') }}">
-                                    @error('discount')
-                                        <span class="error invalid-feedback">
-                                            {{ $message }}
-                                        </span>
-                                    @enderror
-                                </div>
-                                <div class="form-group">
-                                    <label for="discount_type">
-                                        Discount Type
-                                    </label>
-                                    <select name="discount_type" id="discount_type"
-                                        class="form-control @error('discount_type') is-invalid @enderror">
-                                        <option value="amount">
-                                            Amount
-                                        </option>
-                                        <option value="percentage">
-                                            Percentage
-                                        </option>
-                                    </select>
-                                    @error('discount_type')
+                                    <input type="number" step="any" name="selling_price"
+                                        class="form-control @error('selling_price') is-invalid @enderror" id="selling_price"
+                                        placeholder="Enter Selling Price" value="{{ old('selling_price') }}">
+
+                                    @error('selling_price')
                                         <span class="error invalid-feedback">
                                             {{ $message }}
                                         </span>
@@ -86,7 +69,7 @@
 
                                 <div class="form-group">
                                     <label for="stock_quantity">
-                                        Stock Quantity
+                                        Initial Stock Quantity
                                     </label>
                                     <input type="number" name="stock_quantity"
                                         class="form-control @error('stock_quantity') is-invalid @enderror"
@@ -151,7 +134,7 @@
                                         </span>
                                     @enderror
                                 </div>
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label for="category">
                                         Select Sub Category
                                     </label>
@@ -163,7 +146,7 @@
                                             {{ $message }}
                                         </span>
                                     @enderror
-                                </div>
+                                </div> --}}
                                 <div class="form-group">
                                     <label for="editor">
                                         Description
@@ -177,96 +160,12 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="size_guide_editor">
-                                        Size Guide (optional)
-                                    </label>
-                                    <textarea name="size_guide" class="form-control @error('size_guide') is-invalid @enderror" id="size_guide_editor"
-                                        placeholder="Write product-specific size guide or paste HTML table">{{ old('size_guide') }}</textarea>
-                                    @error('size_guide')
-                                        <span class="error invalid-feedback">
-                                            {{ $message }}
-                                        </span>
-                                    @enderror
-                                    <small class="text-muted">If provided, a Size Guide link will appear on the product page.</small>
-                                </div>
-                                <div class="form-group">
-                                    <label for="meta_title">
-                                        Meta Title (optional)
-                                    </label>
-                                    <input type="text" name="meta_title"
-                                        class="form-control @error('meta_title') is-invalid @enderror" id="meta_title"
-                                        placeholder="Enter Meta Title" value="{{ old('meta_title') }}">
-                                    @error('meta_title')
-                                        <span class="error invalid-feedback">
-                                            {{ $message }}
-                                        </span>
-                                    @enderror
-                                </div>
-                                <div class="form-group">
-                                    <label for="meta_description">
-                                        Meta Description (optional)
-                                    </label>
-                                    <textarea name="meta_description" 
-                                        class="form-control @error('meta_description') is-invalid @enderror" 
-                                        id="meta_description" 
-                                        placeholder="Enter Meta Description">{{ old('meta_description') }}</textarea>
-                                    @error('meta_description')
-                                        <span class="error invalid-feedback">
-                                            {{ $message }}
-                                        </span>
-                                    @enderror
-                                </div>
-                                <div class="form-group">
-                                    <label for="meta_keywords">
-                                        Meta Keywords (optional, comma-separated)
-                                    </label>
-                                    <textarea name="meta_keywords" 
-                                        class="form-control @error('meta_keywords') is-invalid @enderror" 
-                                        id="meta_keywords" 
-                                        placeholder="Enter Meta Keywords (e.g., product, category, brand)">{{ old('meta_keywords') }}</textarea>
-                                    @error('meta_keywords')
-                                        <span class="error invalid-feedback">
-                                            {{ $message }}
-                                        </span>
-                                    @enderror
-                                    <small class="text-muted">Separate keywords with commas</small>
-                                </div>
-                                <div class="form-group">
-                                    <label for="meta_image">
-                                        Meta Image (optional)
-                                    </label>
-                                    <input type="file" name="meta_image"
-                                        class="form-control @error('meta_image') is-invalid @enderror"
-                                        style="line-height: 1.2" accept="image/*">
-                                    @error('meta_image')
-                                        <span class="error invalid-feedback">
-                                            {{ $message }}
-                                        </span>
-                                    @enderror
-                                    <span class="text-muted text-sm">Recommended size: 1200 × 630px</span>
-                                </div>
-                                <div class="form-group mt-3">
-                                    <label for="video">Product Video (optional)</label>
-                                    <input type="file" name="video"
-                                        class="form-control-file @error('video') is-invalid @enderror" accept="video/*">
-                                    @error('video')
-                                        <span class="error invalid-feedback d-block">{{ $message }}</span>
-                                    @enderror
-
-                                    @if (!empty($product->video))
-                                        <video controls class="mt-2" width="320">
-                                            <source src="{{ asset('storage/' . $product->video) }}" type="video/mp4">
-                                            Your browser does not support the video tag.
-                                        </video>
-                                    @endif
-                                </div>
-                                <div class="form-group">
                                     <label for="picture">
-                                        Select Picture
+                                  Product Image (optional)
                                     </label>
                                     <input type="file" name="picture"
-                                        class="form-control @error('picture') is-invalid @enderror"
-                                        style="line-height: 1.2" accept="image/*">
+                                        class="form-control @error('picture') is-invalid @enderror" style="line-height: 1.2"
+                                        accept="image/*">
                                     @error('picture')
                                         <span class="error invalid-feedback">
                                             {{ $message }}
@@ -274,12 +173,12 @@
                                     @enderror
                                     <span class="text-muted text-sm">400 × 300px is recommended size</span>
                                 </div>
-                                <div class="form-check">
+                                {{-- <div class="form-check">
                                     <input type="checkbox" name="active" class="form-check-input" id="active">
                                     <label class="form-check-label" for="active">
                                         Active
                                     </label>
-                                </div>
+                                </div> --}}
                             </div>
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-primary">

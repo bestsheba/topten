@@ -15,31 +15,24 @@ class Product extends Model
 
     protected $guarded = ['id'];
 
-    protected $appends = ['final_price', 'discount_amount', 'picture_url'];
+    // protected static function boot()
+    // {
+    //     parent::boot();
 
-    protected static function boot()
-    {
-        parent::boot();
+    //     static::saving(function ($product) {
+    //         if (empty($product->slug)) {
+    //             $slug = Str::slug($product->name);
+    //             $originalSlug = $slug;
+    //             $counter = 1;
+    //             while (Product::where('slug', $slug)->exists()) {
+    //                 $slug = $originalSlug . '-' . $counter;
+    //                 $counter++;
+    //             }
 
-        static::saving(function ($product) {
-            if (empty($product->slug)) {
-                // Generate the initial slug from the product name
-                $slug = Str::slug($product->name);
-
-                // Check if the slug is unique, if not, append a number suffix
-                $originalSlug = $slug;
-                $counter = 1;
-
-                // Ensure uniqueness by checking if the slug exists
-                while (Product::where('slug', $slug)->exists()) {
-                    $slug = $originalSlug . '-' . $counter;
-                    $counter++;
-                }
-
-                $product->slug = $slug;
-            }
-        });
-    }
+    //             $product->slug = $slug;
+    //         }
+    //     });
+    // }
 
     public function getPictureUrlAttribute()
     {

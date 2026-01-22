@@ -124,12 +124,13 @@
                                         <th>Name</th>
                                         <th>Brand</th>
                                         <th>Category</th>
-                                        <th>Price</th>
-                                        <th>Stock Quantity</th>
-                                        <th>
+                                        <th>Buying price</th>
+                                        <th>Selling Price</th>
+                                        <th>Initial Stock</th>
+                                        {{-- <th>
                                             Flash Deal
                                         </th>
-                                        <th>Status</th>
+                                        <th>Status</th> --}}
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -165,7 +166,12 @@
                                             </td>
                                             <td>
                                                 <span class="font-weight-bold">
-                                                    {{ showAmount($product->price) }}
+                                                    {{ showAmount($product->buying_price) }}
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <span class="font-weight-bold">
+                                                    {{ showAmount($product->selling_price) }}
                                                 </span>
                                             </td>
                                             <td>
@@ -173,7 +179,7 @@
                                                     {{ $product->stock_quantity }}
                                                 </span>
                                             </td>
-                                            <td>
+                                            {{-- <td>
                                                 <form id="offerForm{{ $product->id }}"
                                                     action="{{ route('admin.product.offer.update', $product->id) }}"
                                                     method="POST">
@@ -196,7 +202,7 @@
                                                         Disabled
                                                     </span>
                                                 @endif
-                                            </td>
+                                            </td> --}}
                                             <td>
                                                 <div class="d-flex items-align-center">
                                                     <a href="{{ route('admin.gallery.index') . '?product=' . $product->id }}"

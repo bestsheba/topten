@@ -75,83 +75,62 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        if ($request->filled('scroll_height')) {
-            return redirect()->route('admin.product.create', [
-                'scroll' => $request->scroll_height,
-                'category' => $request->category
-            ])->withInput();
-        }
+   public function store(Request $request)
+{
+    if ($request->filled('scroll_height')) {
+        return redirect()->route('admin.product.create', [
+            'scroll' => $request->scroll_height,
+            'category' => $request->category
+        ])->withInput();
+    }
 
-        $request->validate([
-            'name' => 'required',
-            'picture' => 'required|image',
-            'description' => 'required',
-            'price' => 'required',
-            'stock_quantity' => 'required',
-            'sku' => 'required|unique:products,sku',
-            'category' => 'required',
-            // 'sub_category' => 'required',
-            'brand' => 'nullable',
-            'video' => 'nullable|file|mimes:mp4,mov,ogg,webm|max:51200',
-            'meta_title' => 'nullable|string|max:255',
-            'meta_description' => 'nullable|string|max:500',
-            'meta_image' => 'nullable|image|max:2048',
-            'meta_keywords' => 'nullable|string|max:1000',
-            'size_guide' => 'nullable|string',
+    $request->validate([
+        'name' => 'required',
+        'picture' => 'nullable|image',
+        'description' => 'required',
+        'stock_quantity' => 'required',
+        'sku' => 'required|unique:products,sku',
+        'category' => 'required',
+        'buying_price'    => 'required|numeric|min:0',
+        'selling_price'   => 'required|numeric|min:0|gte:buying_price',
+        'brand' => 'nullable',
+    ]);
+
+    try {
+        DB::beginTransaction();
+
+        // Upload picture only if provided
+        $picture = $request->hasFile('picture') ? uploadImage($request->picture, 'products') : null;
+
+        $product = Product::create([
+            'name' => $request->name,
+            'picture' => $picture,
+            'description' => $request->description,
+            'stock_quantity' => $request->stock_quantity,
+            'sku' => $request->sku,
+            'category_id' => $request->category,
+            'brand_id' => $request->brand,
+            'buying_price' => $request->buying_price,
+            'selling_price' => $request->selling_price,
         ]);
 
-        try {
-            DB::beginTransaction();
-            $picture = uploadImage($request->picture, 'products');
-            $videoPath = '';
-            if ($request->hasFile('video')) {
-                $videoPath = $request->file('video')->store('product_videos', 'public');
-            }
-
-            $metaImagePath = '';
-            if ($request->hasFile('meta_image')) {
-                $metaImagePath = $request->file('meta_image')->store('product_meta_images', 'public');
-            }
-
-            $product = Product::create([
-                'name' => $request->name,
-                'price' => $request->price,
-                'picture' => $picture,
-                'description' => $request->description,
-                'size_guide' => $request->size_guide,
-                'stock_quantity' => $request->stock_quantity,
-                'is_active' => $request->active ? true : false,
-                'sku' => $request->sku,
-                'category_id' => $request->category,
-                'sub_category_id' => $request->sub_category,
-                'brand_id' => $request->brand,
-                'discount' => $request->discount,
-                'discount_type' => $request->discount_type,
-                'video' => $videoPath,
-                'meta_title' => $request->meta_title,
-                'meta_description' => $request->meta_description,
-                'meta_image' => $metaImagePath,
-                'meta_keywords' => $request->meta_keywords,
-            ]);
-            DB::commit();
-            flashMessage('success', 'Product Added Successfully.');
-            return redirect()->route('admin.product.index');
-        } catch (\Exception $e) {
-            DB::rollBack();
+        DB::commit();
+        flashMessage('success', 'Product Added Successfully.');
+        return redirect()->route('admin.product.index');
+    } catch (\Exception $e) {
+        DB::rollBack();
+        if (!empty($picture)) {
             deleteFile($picture);
-            if (!empty($metaImagePath)) {
-                deleteFile($metaImagePath);
-            }
-            info('product create error: ' . $e->getMessage(), [
-                'exception' => $e,
-                'input' => $request->all()
-            ]);
-            flashMessage('error', 'Something went wrong!');
-            return redirect()->back()->withInput();
         }
+        info('product create error: ' . $e->getMessage(), [
+            'exception' => $e,
+            'input' => $request->all()
+        ]);
+        flashMessage('error', 'Something went wrong!');
+        return redirect()->back()->withInput();
     }
+}
+
 
     /**
      * Display the specified resource.
@@ -191,97 +170,67 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Product $product)
-    {
-        if ($request->filled('scroll_height')) {
-            return redirect()->route('admin.product.edit', [$product->id, 'scroll' => $request->scroll_height, 'category' =>  $request->category])->withInput();
+   public function update(Request $request, Product $product)
+{
+    $request->validate([
+        'name' => 'required',
+        'picture' => 'nullable|image',
+        'description' => 'required',
+        'stock_quantity' => 'required',
+        'sku' => 'required|unique:products,sku,' . $product->id,
+        'category' => 'required',
+        'buying_price' => 'required|numeric|min:0',
+        'selling_price' => 'required|numeric|min:0|gte:buying_price',
+        'brand' => 'nullable',
+    ]);
+
+    try {
+        DB::beginTransaction();
+
+        $picture = $product->picture; // keep existing picture by default
+
+        // Upload new image if provided
+        if ($request->hasFile('picture')) {
+            $newPicture = uploadImage($request->picture, 'products');
+            // Delete old image if exists
+            if ($picture) {
+                deleteFile($picture);
+            }
+            $picture = $newPicture;
         }
 
-        $request->validate([
-            'name' => 'required',
-            'description' => 'required',
-            'price' => 'required',
-            'stock_quantity' => 'required',
-            'sku' => 'required|unique:products,sku,' . $product->id,
-            'category' => 'required',
-            // 'sub_category' => 'required',
-            'brand' => 'nullable',
-            'video' => 'nullable',
-            'meta_title' => 'nullable|string|max:255',
-            'meta_description' => 'nullable|string|max:500',
-            'meta_image' => 'nullable|image|max:2048',
-            'meta_keywords' => 'nullable|string|max:1000',
-            'size_guide' => 'nullable|string',
+        $product->update([
+            'name' => $request->name,
+            'picture' => $picture,
+            'description' => $request->description,
+            'stock_quantity' => $request->stock_quantity,
+            'sku' => $request->sku,
+            'category_id' => $request->category,
+            'brand_id' => $request->brand,
+            'buying_price' => $request->buying_price,
+            'selling_price' => $request->selling_price,
         ]);
 
-        try {
-            DB::beginTransaction();
-            $picture = $product->picture;
-
-            if ($request->hasFile('picture')) {
-                deleteFile($picture);
-                $picture = uploadImage($request->picture, 'products');
-            }
-
-            $videoPath = $product->video;
-
-            if ($request->hasFile('video')) {
-                if ($product->video && Storage::disk('public')->exists($product->video)) {
-                    Storage::disk('public')->delete($product->video);
-                }
-                $videoPath = $request->file('video')->store('product_videos', 'public');
-            }
-
-            $metaImagePath = $product->meta_image;
-
-            if ($request->hasFile('meta_image')) {
-                if ($product->meta_image && Storage::disk('public')->exists($product->meta_image)) {
-                    Storage::disk('public')->delete($product->meta_image);
-                }
-                $metaImagePath = $request->file('meta_image')->store('product_meta_images', 'public');
-            }
-
-            $product->update([
-                'name' => $request->name,
-                'price' => $request->price,
-                'picture' => $picture,
-                'description'  => $request->description,
-                'size_guide' => $request->size_guide,
-                'stock_quantity' => $request->stock_quantity,
-                'is_active' => $request->active ? true : false,
-                'sku' => $request->sku,
-                'category_id' =>  $request->category,
-                'sub_category_id' =>  $request->sub_category,
-                'brand_id' =>  $request->brand,
-                'discount' =>  $request->discount,
-                'discount_type' =>  $request->discount_type,
-                'video' => $videoPath,
-                'meta_title' => $request->meta_title,
-                'meta_description' => $request->meta_description,
-                'meta_image' => $metaImagePath,
-                'meta_keywords' => $request->meta_keywords,
-            ]);
-
-            DB::commit();
-
-            flashMessage('success', 'Product Updated Successfully.');
-            return redirect()->route('admin.product.index');
-        } catch (\Exception $e) {
-            DB::rollBack();
-            if ($request->hasFile('picture')) {
-                deleteFile($picture);
-            }
-            if ($request->hasFile('meta_image')) {
-                deleteFile($metaImagePath);
-            }
-            info('product update error: ' . $e->getMessage());
-            flashMessage('error', $e->getMessage(), [
-                'exception' => $e,
-                'input' => $request->all()
-            ]);
-            return redirect()->back()->withInput();
+        DB::commit();
+        flashMessage('success', 'Product Updated Successfully.');
+        return redirect()->route('admin.product.index');
+    } catch (\Exception $e) {
+        DB::rollBack();
+        // If new image was uploaded but update failed, delete it
+        if (isset($newPicture) && $newPicture) {
+            deleteFile($newPicture);
         }
+
+        info('product update error: ' . $e->getMessage(), [
+            'exception' => $e,
+            'input' => $request->all()
+        ]);
+
+        flashMessage('error', 'Something went wrong!');
+        return redirect()->back()->withInput();
     }
+}
+
 
     /**
      * Remove the specified resource from storage.

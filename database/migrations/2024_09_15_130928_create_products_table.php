@@ -13,22 +13,33 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+
             $table->string('name');
-            $table->string('picture');
-            $table->text('description')->nullable();
-            $table->decimal('price', 10, 2);
-            $table->integer('stock_quantity')->default(0);
+
+            $table->decimal('buying_price', 10, 2);
+            $table->decimal('selling_price', 10, 2);
+
+            $table->unsignedInteger('stock_quantity')->default(0);
+
             $table->string('sku')->unique();
-            $table->boolean('is_active')->default(0);
-            $table->unsignedBigInteger('category_id');
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+
+            $table->foreignId('brand_id')
+                ->nullable()
+                ->constrained('brands')
+                ->nullOnDelete();
+
+            $table->foreignId('category_id')
+                ->constrained()
+                ->cascadeOnDelete();
+            $table->text('description')->nullable();
+
+            $table->string('picture')->nullable();
+
+            $table->boolean('active')->default(true);
+
             $table->timestamps();
         });
     }
-
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('products');
