@@ -96,25 +96,6 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="category">
-                                        Select Brand (optional)
-                                    </label>
-                                    <select name="brand" id="brand"
-                                        class="form-control @error('brand') is-invalid @enderror">
-                                        <option value="" selected>Select Brand</option>
-                                        @foreach ($brands as $brand)
-                                            <option @selected(request('brand_id') == $brand->id) value="{{ $brand->id }}">
-                                                {{ $brand->name }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                    @error('brand')
-                                        <span class="error invalid-feedback">
-                                            {{ $message }}
-                                        </span>
-                                    @enderror
-                                </div>
-                                <div class="form-group">
-                                    <label for="category">
                                         Select Category
                                     </label>
                                     <select name="category" id="category"
@@ -147,18 +128,6 @@
                                         </span>
                                     @enderror
                                 </div> --}}
-                                <div class="form-group">
-                                    <label for="editor">
-                                        Description
-                                    </label>
-                                    <textarea name="description" class="form-control @error('description') is-invalid @enderror" id="editor"
-                                        placeholder="Enter Description">{{ old('description') }}</textarea>
-                                    @error('description')
-                                        <span class="error invalid-feedback">
-                                            {{ $message }}
-                                        </span>
-                                    @enderror
-                                </div>
                                 <div class="form-group">
                                     <label for="picture">
                                   Product Image (optional)

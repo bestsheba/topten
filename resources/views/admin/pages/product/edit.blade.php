@@ -93,23 +93,6 @@
                                     @enderror
                                 </div>
 
-                                {{-- Brand --}}
-                                <div class="form-group">
-                                    <label for="brand">Select Brand (optional)</label>
-                                    <select name="brand" id="brand"
-                                        class="form-control @error('brand') is-invalid @enderror">
-                                        <option value="">Select Brand</option>
-                                        @foreach ($brands as $brand)
-                                            <option value="{{ $brand->id }}" @selected(old('brand', $product->brand_id) == $brand->id)>
-                                                {{ $brand->name }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                    @error('brand')
-                                        <span class="error invalid-feedback">{{ $message }}</span>
-                                    @enderror
-                                </div>
-
                                 {{-- Category --}}
                                 <div class="form-group">
                                     <label for="category">Select Category</label>

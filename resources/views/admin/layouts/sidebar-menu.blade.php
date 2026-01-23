@@ -53,7 +53,7 @@
                     </li>
                 @endcan --}}
 
-                @can('view brands')
+                {{-- @can('view brands')
                     <li class="nav-item">
                         <a href="{{ route('admin.brand.index') }}"
                             class="nav-link {{ request()->routeIs('admin.brand.*') ? 'active' : '' }}">
@@ -61,7 +61,7 @@
                             <p>Brand</p>
                         </a>
                     </li>
-                @endcan
+                @endcan --}}
                 @can('manage sizes')
                     <li class="nav-item">
                         <a href="{{ route('admin.attributes.index') }}"

@@ -122,7 +122,7 @@
                                         <th width="5">#</th>
                                         <th>Picture</th>
                                         <th>Name</th>
-                                        <th>Brand</th>
+                                        {{-- <th>Brand</th> --}}
                                         <th>Category</th>
                                         <th>Buying price</th>
                                         <th>Selling Price</th>
@@ -152,12 +152,12 @@
                                                     {{ $product->sku }}
                                                 </span>
                                             </td>
-                                            <td>
+                                            {{-- <td>
                                                 <a href="{{ route('admin.brand.index', ['keyword' => $product->brand?->name]) }}"
                                                     class="font-weight-bold">
                                                     {{ $product->brand?->name }}
                                                 </a>
-                                            </td>
+                                            </td> --}}
                                             <td>
                                                 <a href="{{ route('admin.category.index', ['keyword' => $product->category->name]) }}"
                                                     class="font-weight-bold">
