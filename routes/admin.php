@@ -44,6 +44,7 @@ use App\Http\Controllers\TailorOrderController;
 // Admin Auth Route
 Route::prefix('admin')->as('admin.')->middleware('auth:admin')->group(function () {
     Route::post('/tailor/orders/invoice', [TailorOrderController::class, 'generateInvoice'])->name('tailor.orders.invoice');
+    Route::post('/tailor/orders/pay-due', [TailorOrderController::class, 'payDue'])->name('tailor.orders.pay-due');
 
     Route::get('/tailor/orders/create', [TailorOrderController::class, 'create'])->name('tailor.orders.create');
     Route::get('/tailor/measurements/{id}', [TailorOrderController::class, 'measurements']);

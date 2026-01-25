@@ -12,6 +12,9 @@ class TailorOrder extends Model
         'garment_type_id',
         'price',
         'measurements',
+        'collected_cash',
+        'paid_amount',
+        'status',
     ];
 
     protected $casts = [

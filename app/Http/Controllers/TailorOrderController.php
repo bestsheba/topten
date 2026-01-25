@@ -32,6 +32,25 @@ class TailorOrderController extends Controller
 
         return $pdf->download('invoice-' . now()->format('YmdHis') . '.pdf');
     }
+    public function payDue(Request $request)
+    {
+        $order = TailorOrder::findOrFail($request->order_id);
+
+        $order->paid_amount += $request->pay_amount;
+
+        if ($order->paid_amount >= $order->price) {
+            $order->status = 'paid';
+        } elseif ($order->paid_amount > 0) {
+            $order->status = 'partial';
+        } else {
+            $order->status = 'due';
+        }
+
+        $order->save();
+
+        return response()->json(['success' => true]);
+    }
+
     public function index()
     {
         $orders = TailorOrder::with(['customer', 'tailor', 'garmentType'])
@@ -68,18 +87,41 @@ class TailorOrderController extends Controller
             'tailor_id'        => ['required', 'exists:tailors,id'],
             'garment_type_id'  => ['required', 'exists:garment_types,id'],
             'price'            => ['required', 'numeric', 'min:0'],
-            'measurements'     => ['required', 'array'],
-            'measurements.*'   => ['required'],
+            'cash'   => ['nullable', 'numeric', 'min:0'],
+            'measurements'     => ['nullable', 'array'],
+            'measurements.*'   => ['nullable'],
         ]);
 
+        // 2️⃣ Normalize values
+        $price = $validated['price'];
+        $collected = $validated['cash'] ?? 0;
+
+        // Prevent over-payment
+        if ($collected > $price) {
+            $collected = $price;
+        }
+
+        // 3️⃣ Determine payment status
+        if ($collected == 0) {
+            $status = 'due';
+        } elseif ($collected < $price) {
+            $status = 'partial';
+        } else {
+            $status = 'paid';
+        }
+
+        // 4️⃣ Create order
         TailorOrder::create([
             'customer_id'     => $validated['customer_id'],
             'tailor_id'       => $validated['tailor_id'],
             'garment_type_id' => $validated['garment_type_id'],
-            'price'           => $validated['price'],
+            'price'           => $price,
+            'paid_amount'  => $collected,
+            'payment_status'  => $status,
             'measurements'    => $validated['measurements'],
         ]);
 
+        // 5️⃣ Redirect
         return redirect()
             ->route('admin.tailor.orders.create')
             ->with('success', 'Order created successfully.');

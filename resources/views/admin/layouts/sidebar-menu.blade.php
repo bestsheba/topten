@@ -86,28 +86,15 @@
         </li>
     @endcan --}}
     @canany(['view orders'])
-        <li
-            class="nav-item {{ request()->routeIs('admin.tailors*') || request()->routeIs('admin.pos') ? 'menu-open' : '' }}">
-            <a href="#"
-                class="nav-link {{ request()->routeIs('admin.tailors.*') || request()->routeIs('admin.pos') ? 'active' : '' }}">
+        <li class="nav-item {{ request()->routeIs('admin.order*') }}">
+            <a href="#" class="nav-link {{ request()->routeIs('admin.order.*') }}">
                 <i class="nav-icon fas fa-shopping-cart"></i>
                 <p>
-                    Tailors
+                    Orders
                     <i class="right fas fa-angle-left"></i>
                 </p>
             </a>
             <ul class="nav nav-treeview">
-                @can('view orders')
-                    <li class="nav-item">
-                        <a href="{{ route('admin.tailor.orders') }}"
-                            class="nav-link {{ request()->routeIs('tailor.orders') ? 'active' : '' }}">
-                            <i class="nav-icon fas fa-cash-register"></i>
-                            <p>
-                                Service Orders
-                            </p>
-                        </a>
-                    </li>
-                @endcan
                 <li class="nav-item">
                     <a href="{{ route('admin.order.index') }}"
                         class="nav-link {{ request()->routeIs('admin.order.*') && !request()->routeIs('admin.order.incomplete') ? 'active' : '' }}">
@@ -117,26 +104,27 @@
                         </p>
                     </a>
                 </li>
-                @can('view orders')
-                    <li class="nav-item">
-                        <a href="{{ route('admin.tailors.index') }}"
-                            class="nav-link {{ request()->routeIs('tailor.orders') ? 'active' : '' }}">
-                            <i class="nav-icon fas fa-cash-register"></i>
-                            <p>
-                                Tailor List
-                            </p>
-                        </a>
-                    </li>
-                @endcan
                 <li class="nav-item">
-                    <a href="{{ route('admin.tailor.orders.create') }}" class="nav-link ">
-                        <i class="nav-icon fas fa-clipboard-list"></i>
+                    <a href="{{ route('admin.tailor.orders') }}"
+                        class="nav-link {{ request()->routeIs('tailor.orders') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-cash-register"></i>
                         <p>
-                            Order Create
+                            Service Orders
                         </p>
                     </a>
                 </li>
             </ul>
+        </li>
+    @endcanany
+    @canany(['view orders'])
+        <li class="nav-item">
+            <a href="{{ route('admin.tailors.index') }}"
+                class="nav-link {{ request()->routeIs('admin.tailors.index') ? 'active' : '' }}">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <p>
+                    Tailor List
+                </p>
+            </a>
         </li>
     @endcanany
     @canany(['manage measurement'])

@@ -17,10 +17,10 @@ return new class extends Migration
             $table->foreignId('customer_id')->constrained('users')->cascadeOnDelete();
             $table->foreignId('tailor_id')->constrained()->cascadeOnDelete();
             $table->foreignId('garment_type_id')->constrained()->cascadeOnDelete();
-
             $table->decimal('price', 10, 2);
             $table->json('measurements');
-
+            $table->string('collected_cash');
+            $table->string('status');
             $table->timestamps();
         });
     }
