@@ -38,10 +38,10 @@
                 @endforeach
             </select>
 
-            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+            {{-- <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
                 data-bs-target="#addCustomerModal">
                 <i class="fas fa-plus"></i>
-            </button>
+            </button> --}}
         </div>
 
         @error('customer_id')
