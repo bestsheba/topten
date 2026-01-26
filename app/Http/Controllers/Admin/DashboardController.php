@@ -10,6 +10,7 @@ use App\Models\Category;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\TailorOrder;
 
 class DashboardController extends Controller
 {
@@ -20,6 +21,7 @@ class DashboardController extends Controller
         }
 
         $data['total_orders'] = Order::count();
+        $data['tailor_orders'] = TailorOrder::count();
         $data['total_products'] = Product::active()->count();
         $data['total_customers'] = User::where('is_affiliate', false)->count();
         $data['total_categories'] = Category::count();

@@ -18,8 +18,8 @@
                 <x-admin.dashboard-card title="Orders" :count="$total_orders" background="mycard1"
                     icon='<i class="fas fa-shopping-cart text-white" style="font-size: 4rem; opacity: 0.7;"></i>'
                     url="{{ route('admin.order.index') }}" />
-                <x-admin.dashboard-card title="Sales" :count="$sales" background="mycard2"
-                    icon='<i class="fas fa-dollar-sign text-white" style="font-size: 4rem; opacity: 0.7;"></i>'
+                <x-admin.dashboard-card title="Service" :count="$tailor_orders" background="mycard2"
+                    icon='<i class="fas fa-wrench text-white" style="font-size: 4rem; opacity: 0.7;"></i>'
                     url="{{ route('admin.order.index') }}" />
                 <x-admin.dashboard-card title="Products" :count="$total_products" background="mycard3"
                     icon='<i class="fab fa-product-hunt text-white" style="font-size: 4rem; opacity: 0.7;"></i>'
@@ -30,12 +30,12 @@
             </div>
 
             <!-- Circular Stats Row -->
-            <div class="row">
+            {{-- <div class="row">
                 @foreach ($order_status_with_orders as $status)
                     <x-admin.circle-stat title="{{ $status['status'] }}" count="{{ $status['order_count'] }}"
                         color="{{ $status['color'] }}" />
                 @endforeach
-            </div>
+            </div> --}}
             <br>
             <div class="w-100 border bg-white">
                 <div class="flex justify-content-end m-2 mb-0">

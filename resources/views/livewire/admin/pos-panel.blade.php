@@ -370,7 +370,7 @@
                             </div>
                         </div>
 
-                        <div class="mb-3">
+                        {{-- <div class="mb-3">
                             <label class="text-uppercase text-muted small"
                                 style="font-size: 10px; color: #6b7280;">Shipping</label>
                             <div class="d-flex mb-2" style="gap: 6px;">
@@ -390,8 +390,8 @@
                             <input type="number" min="0" class="form-control"
                                 style="font-size: 12px; padding: 8px 12px; height: 36px;"
                                 wire:model.live="shippingCharge">
-                        </div>
-
+                        </div> --}}
+{{-- 
                         <div class="mb-3">
                             <label class="text-uppercase text-muted small"
                                 style="font-size: 10px; color: #6b7280;">VAT/Tax (Optional)</label>
@@ -415,8 +415,8 @@
                                     </span>
                                 </div>
                             </div>
-                        </div>
-
+                        </div> --}}
+{{-- 
                         <div class="form-group">
                             <label>Payment method</label>
                             <div class="d-flex flex-wrap" style="gap: 4px;">
@@ -428,7 +428,7 @@
                                     </button>
                                 @endforeach
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="form-group">
                             <label>Payment status</label>
@@ -445,7 +445,7 @@
                         <div class=""
                             style="background: #f9fafb; border: 1px solid #e8ecf4; border-radius: 6px; padding: 8px 10px;">
                             <div class="d-flex justify-content-between align-items-center mb-1"
-                                style="font-size: 10px; color: #6b7280;">
+                                style="color: #6b7280;">
                                 <span>Subtotal</span>
                                 <span style="font-weight: 600; color: #1f2937;">
                                     {{ showAmount($cartSubtotal) }}
@@ -454,7 +454,7 @@
 
                             @if ($discountAmount > 0)
                                 <div class="d-flex justify-content-between align-items-center mb-1"
-                                    style="font-size: 10px; color: #6b7280;">
+                                    style="color: #6b7280;">
                                     <span>
                                         Discount
                                         @if ($globalDiscountType === 'percent')
@@ -467,14 +467,14 @@
                                 </div>
                             @endif
 
-                            <div class="d-flex justify-content-between align-items-center mb-1"
+                            {{-- <div class="d-flex justify-content-between align-items-center mb-1"
                                 style="font-size: 10px; color: #6b7280;">
                                 <span>Shipping</span>
                                 <span style="font-weight: 600; color: #1f2937;">
                                     {{ showAmount($shippingCharge) }}
                                 </span>
-                            </div>
-
+                            </div> --}}
+{{-- 
                             @if ($taxAmount > 0)
                                 <div class="d-flex justify-content-between align-items-center mb-1"
                                     style="font-size: 10px; color: #6b7280;">
@@ -488,10 +488,10 @@
                                         {{ showAmount($taxAmount) }}
                                     </span>
                                 </div>
-                            @endif
+                            @endif --}}
 
                             <div class="d-flex justify-content-between align-items-center pt-1 mt-1"
-                                style="border-top: 1px solid #e8ecf4; font-size: 11px; font-weight: 700;">
+                                style="border-top: 1px solid #e8ecf4; font-weight: 700;">
                                 <span style="color: #1f2937;">Total</span>
                                 <span style="color: #667eea;">{{ showAmount($grandTotal) }}</span>
                             </div>
